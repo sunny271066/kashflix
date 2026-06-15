@@ -1,0 +1,31 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scrollBelt {
+  from { transform: translateY(-50%) translateX(0); }
+  to { transform: translateY(-50%) translateX(-50%); }
+}
+
+@keyframes cardEntry0 { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } }
+@keyframes cardEntry1 { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } }
+@keyframes cardEntry2 { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } }
+@keyframes cardEntry3 { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } }
+@keyframes cardEntry4 { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } }

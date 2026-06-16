@@ -1,14 +1,14 @@
 import { useState } from "react";
 import img1 from "../assets/mylist/img39.jpeg";
-import img2 from "../assets/mylist/img40.jpeg";
+import img2 from "../assets/mylist/cimg40.jpeg";
 import img3 from "../assets/mylist/img41.jpeg";
-import img4 from "../assets/mylist/img42.jpeg";
+import img4 from "../assets/mylist/cimg42.jpeg";
 import img5 from "../assets/mylist/img43.jpeg";
-import img6 from "../assets/mylist/img44.jpeg";
+import img6 from "../assets/mylist/cimg44.jpeg";
 import img7 from "../assets/mylist/img45.jpeg";
 import img8 from "../assets/mylist/img46.jpeg";
-import img9 from "../assets/mylist/img47.jpeg";
-import img10 from "../assets/mylist/img48.jpeg";
+import img9 from "../assets/mylist/cimg47.jpeg";
+import img10 from "../assets/mylist/cimg48.jpeg";
 import img11 from "../assets/mylist/img49.jpeg";
 
 import dyn from "../assets/watchlist/dynasty.jpeg";

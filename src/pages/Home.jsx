@@ -15,16 +15,16 @@ import img26 from "../assets/top10/img26.jpg";
 import img27 from "../assets/top10/img27.jpg";
 
 /* POPULAR */
-import img8 from "../assets/popular/img8.jpg";
-import img9 from "../assets/popular/img9.jpg";
-import img10 from "../assets/popular/img10.jpg";
-import img11 from "../assets/popular/img11.jpg";
-import img12 from "../assets/popular/img12.jpg";
-import img13 from "../assets/popular/img13.jpg";
-import img14 from "../assets/popular/img14.jpg";
-import img15 from "../assets/popular/img15.jpg";
-import img16 from "../assets/popular/img16.jpg";
-import img17 from "../assets/popular/img17.jpg";
+import img8 from "../assets/mylist/cimg40.jpeg";
+import img9 from "../assets/mylist/img49.jpeg";
+import img10 from "../assets/mylist/cimg44.jpeg";
+import img11 from "../assets/mylist/cimg47.jpeg";
+import img12 from "../assets/mylist/cimg48.jpeg";
+import img13 from "../assets/mylist/img39.jpeg";
+import img14 from "../assets/mylist/img43.jpeg";
+import img15 from "../assets/mylist/img41.jpeg";
+import img16 from "../assets/mylist/img45.jpeg";
+import img17 from "../assets/mylist/img46.jpeg";
 
 /* FRIENDS */
 import img28 from "../assets/friends/img28.jpg";
@@ -121,42 +121,42 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   ];
 
   const top10 = [
-    { title: "Main Character",   image: img18 },
-    { title: "Chaos Era",        image: img19 },
-    { title: "KBC Origins",      image: img20 },
-    { title: "Emotional Damage", image: img21 },
-    { title: "Honey Season 2",   image: img22 },
-    { title: "Certified Drama",  image: img23 },
-    { title: "Iconic Episode",   image: img24 },
-    { title: "Peak Delusion",    image: img25 },
-    { title: "Unhinged Energy",  image: img26 },
-    { title: "The Finale",       image: img27 },
+    { title: "",   image: img18 },
+    { title: "",        image: img19 },
+    { title: "",      image: img20 },
+    { title: "", image: img21 },
+    { title: "",   image: img22 },
+    { title: "",  image: img23 },
+    { title: "",   image: img24 },
+    { title: "",    image: img25 },
+    { title: "",  image: img26 },
+    { title: "",       image: img27 },
   ];
 
   const popular = [
-    { title: "Popular 1",  image: img8  },
-    { title: "Popular 2",  image: img9  },
-    { title: "Popular 3",  image: img10 },
-    { title: "Popular 4",  image: img11 },
-    { title: "Popular 5",  image: img12 },
-    { title: "Popular 6",  image: img13 },
-    { title: "Popular 7",  image: img14 },
-    { title: "Popular 8",  image: img15 },
-    { title: "Popular 9",  image: img16 },
-    { title: "Popular 10", image: img17 },
+    { title: "",  image: img8  },
+    { title: "",  image: img9  },
+    { title: "",  image: img10 },
+    { title: "",  image: img11 },
+    { title: "",  image: img12 },
+    { title: "",  image: img13 },
+    { title: "",  image: img14 },
+    { title: "",  image: img15 },
+    { title: "",  image: img16 },
+    { title: "", image: img17 },
   ];
 
   const friends = [
-    { title: "Core Memory",       image: img28 },
-    { title: "The Beginning",     image: img29 },
-    { title: "Best Arc",          image: img30 },
-    { title: "Chaotic Duo",       image: img31 },
-    { title: "The Plot Twist",    image: img32 },
-    { title: "Emotional Episode", image: img33 },
-    { title: "Golden Era",        image: img34 },
-    { title: "The Reunion",       image: img35 },
-    { title: "Legendary Scene",   image: img36 },
-    { title: "Final Season",      image: img37 },
+    { title: "",       image: img28 },
+    { title: "",     image: img29 },
+    { title: "",          image: img30 },
+    { title: "",       image: img31 },
+    { title: "",    image: img32 },
+    { title: "", image: img33 },
+    { title: "",        image: img34 },
+    { title: "",       image: img35 },
+    { title: "",   image: img36 },
+    { title: "",      image: img37 },
   ];
 
   const watchlist = [

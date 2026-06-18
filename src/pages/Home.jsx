@@ -62,6 +62,9 @@ import p5 from "../assets/herocard/p5.jpg";
 import p6 from "../assets/herocard/p6.jpeg";
 import p7 from "../assets/herocard/p7.jpeg";
 
+/* Continue watching */
+import cw1 from "../assets/watchlist/cimg1.jpg";
+
 const profiles = [
   { name: "Babes", emoji: "💖" },
   { name: "Honey", emoji: "🍯" },
@@ -78,6 +81,7 @@ export default function Home() {
   const [scrolled, setScrolled]           = useState(false);
   const [currentVideo, setCurrentVideo]   = useState(0);
   const [showMoreInfo, setShowMoreInfo]   = useState(false);
+  
 
   const videos = ["/kash3.mp4"];
 const [animationDone, setAnimationDone] = useState(false);
@@ -170,14 +174,45 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
     { title: "tkb3",                  image: tv,  link: "" },
   ];
 
+  const continueWatching = [
+  { title: "", image: cw1, link: "" },  // add your link here
+];
+
+  
+
   const renderRow = (title, items) => (
-    <div style={{ marginTop: "45px", width: "100%" }}>
-      <h2 style={{ fontSize: "1.8rem", marginBottom: "18px", fontWeight: "700" }}>{title}</h2>
-      <div style={{ display: "flex", gap: "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none" }}>
-        {items.map((item, index) => (
-          <div key={index} style={{
+  <div style={{ marginTop: "45px", width: "100%" }}>
+    <h2 style={{ fontSize: "1.8rem", marginBottom: "18px", fontWeight: "700" }}>{title}</h2>
+    <div style={{ display: "flex", gap: "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none" }}>
+      {items.map((item, index) => (
+        <div key={index} style={{
+          minWidth: "280px", height: "160px", borderRadius: "10px",
+          overflow: "hidden", position: "relative", flexShrink: 0,
+          cursor: "pointer", transition: "0.3s ease",
+        }}>
+          <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to top, rgba(0,0,0,0.95), transparent)",
+            display: "flex", alignItems: "flex-end", padding: "15px",
+            fontSize: "1rem", fontWeight: "600",
+          }}>
+            {item.title}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+  const renderLinkRow = (title, items) => (
+  <div style={{ marginTop: "45px", width: "100%" }}>
+    <h2 style={{ fontSize: "1.8rem", marginBottom: "18px", fontWeight: "700" }}>{title}</h2>
+    <div style={{ display: "flex", gap: "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none" }}>
+      {items.map((item, index) => (
+        <a key={index} href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "white", flexShrink: 0 }}>
+          <div style={{
             minWidth: "280px", height: "160px", borderRadius: "10px",
-            overflow: "hidden", position: "relative", flexShrink: 0,
+            overflow: "hidden", position: "relative",
             cursor: "pointer", transition: "0.3s ease",
           }}>
             <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -190,10 +225,11 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
               {item.title}
             </div>
           </div>
-        ))}
-      </div>
+        </a>
+      ))}
     </div>
-  );
+  </div>
+);
 
   return (
     <div style={{
@@ -547,8 +583,10 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
         {renderRow("Top 10 Shows in India Today", top10)}
         {renderRow("See What's Popular", popular)}
         {renderRow('Because you watched "Yourself become friends with me"', friends)}
+        {renderLinkRow("Continue Watching for Kashish", continueWatching)}
       </div>
-
+      
+  
       {/* ── FOOTER ── */}
       <footer style={{ textAlign: "center", padding: "60px 20px", opacity: 0.7, fontSize: "0.95rem" }}>
         Renewed for another season ❤️

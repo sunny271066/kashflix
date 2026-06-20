@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 import img1 from "../assets/img1.jpg";
 import img2 from "../assets/img2.jpg";
@@ -22,6 +23,7 @@ const profiles = [
 
 export default function Intro() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 700px)");
   const [currentImage, setCurrentImage] = useState(0);
   const [fading, setFading] = useState(false);
 
@@ -37,7 +39,7 @@ export default function Intro() {
   }, []);
 
   return (
-    <div style={{ height: "100vh", width: "100%", position: "relative", overflow: "hidden", fontFamily: "Arial, sans-serif", background: "black" }}>
+    <div style={{ minHeight: "100vh", width: "100%", position: "relative", overflow: "hidden", fontFamily: "Arial, sans-serif", background: "black" }}>
 
       {/* BACKGROUND IMAGE with zoom */}
       {/* BACKGROUND IMAGES - two layers for smooth crossfade */}
@@ -67,26 +69,26 @@ export default function Intro() {
       <div style={{
         position: "relative", zIndex: 2,
         display: "flex", flexDirection: "column",
-        alignItems: "center", paddingTop: "90px", color: "white",
+        alignItems: "center", padding: isMobile ? "56px 18px 36px" : "90px 24px 40px", color: "white",
       }}>
 
         
 
         <h1 style={{
-          color: "#E50914", fontSize: "5rem", fontWeight: "900",
-          margin: 0, letterSpacing: "4px",
+          color: "#E50914", fontSize: isMobile ? "clamp(2.8rem, 17vw, 4.2rem)" : "5rem", fontWeight: "900",
+          margin: 0, letterSpacing: isMobile ? "2px" : "4px",
           fontFamily: "'Arial Black', sans-serif",
           textShadow: "0 2px 10px rgba(0,0,0,0.5)",
         }}>
           KASHFLIX
         </h1>
 
-        <p style={{ marginTop: "12px", fontSize: "1.8rem", color: "rgba(255,255,255,0.85)", fontWeight: "300" }}>
+        <p style={{ marginTop: "12px", fontSize: isMobile ? "1.15rem" : "1.8rem", color: "rgba(255,255,255,0.85)", fontWeight: "300" }}>
           Choose your profile
         </p>
 
         {/* PROFILES */}
-        <div style={{ marginTop: "60px", display: "flex", gap: "40px" }}>
+        <div style={{ marginTop: isMobile ? "34px" : "60px", display: "flex", gap: isMobile ? "20px" : "40px", flexWrap: "wrap", justifyContent: "center", maxWidth: "760px" }}>
           {profiles.map((profile) => (
             <div
               key={profile.name}
@@ -95,12 +97,12 @@ export default function Intro() {
             >
               <div
                 style={{
-                  width: "160px", height: "160px", borderRadius: "12px",
+                  width: isMobile ? "118px" : "160px", height: isMobile ? "118px" : "160px", borderRadius: "12px",
                   background: "rgba(30,30,30,0.85)",
                   backdropFilter: "blur(10px)",
                   border: "2px solid rgba(255,255,255,0.15)",
                   display: "flex", justifyContent: "center", alignItems: "center",
-                  fontSize: "4.5rem",
+                  fontSize: isMobile ? "3.2rem" : "4.5rem",
                   transition: "transform 0.2s ease, border-color 0.2s ease",
                   boxShadow: "0 8px 25px rgba(0,0,0,0.5)",
                 }}
@@ -115,7 +117,7 @@ export default function Intro() {
               >
                 {profile.emoji}
               </div>
-              <p style={{ marginTop: "16px", fontSize: "1.3rem", fontWeight: "500", color: "rgba(255,255,255,0.8)" }}>
+              <p style={{ marginTop: "16px", fontSize: isMobile ? "1rem" : "1.3rem", fontWeight: "500", color: "rgba(255,255,255,0.8)" }}>
                 {profile.name}
               </p>
             </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useMediaQuery from "../hooks/useMediaQuery";
 import heroImg from "../assets/hero/img38.jpg";
 
 /* TOP 10 */
@@ -74,6 +75,8 @@ const profiles = [
 
 export default function Home() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 700px)");
+  const isTiny = useMediaQuery("(max-width: 430px)");
 
   const [showNotifs, setShowNotifs]       = useState(false);
   const [showProfiles, setShowProfiles]   = useState(false);
@@ -181,21 +184,21 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   
 
   const renderRow = (title, items) => (
-  <div style={{ marginTop: "45px", width: "100%" }}>
-    <h2 style={{ fontSize: "1.8rem", marginBottom: "18px", fontWeight: "700" }}>{title}</h2>
-    <div style={{ display: "flex", gap: "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none" }}>
+  <div style={{ marginTop: isMobile ? "32px" : "45px", width: "100%" }}>
+    <h2 style={{ fontSize: isMobile ? "1.2rem" : "1.8rem", marginBottom: isMobile ? "12px" : "18px", fontWeight: "700" }}>{title}</h2>
+    <div style={{ display: "flex", gap: isMobile ? "10px" : "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none", scrollSnapType: "x proximity" }}>
       {items.map((item, index) => (
         <div key={index} style={{
-          minWidth: "280px", height: "160px", borderRadius: "10px",
+          minWidth: isMobile ? "72vw" : "280px", height: isMobile ? "41vw" : "160px", maxHeight: isMobile ? "180px" : "none", borderRadius: isMobile ? "8px" : "10px",
           overflow: "hidden", position: "relative", flexShrink: 0,
-          cursor: "pointer", transition: "0.3s ease",
+          cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start",
         }}>
           <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           <div style={{
             position: "absolute", inset: 0,
             background: "linear-gradient(to top, rgba(0,0,0,0.95), transparent)",
             display: "flex", alignItems: "flex-end", padding: "15px",
-            fontSize: "1rem", fontWeight: "600",
+            fontSize: isMobile ? "0.9rem" : "1rem", fontWeight: "600",
           }}>
             {item.title}
           </div>
@@ -205,22 +208,22 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   </div>
 );
   const renderLinkRow = (title, items) => (
-  <div style={{ marginTop: "45px", width: "100%" }}>
-    <h2 style={{ fontSize: "1.8rem", marginBottom: "18px", fontWeight: "700" }}>{title}</h2>
-    <div style={{ display: "flex", gap: "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none" }}>
+  <div style={{ marginTop: isMobile ? "32px" : "45px", width: "100%" }}>
+    <h2 style={{ fontSize: isMobile ? "1.2rem" : "1.8rem", marginBottom: isMobile ? "12px" : "18px", fontWeight: "700" }}>{title}</h2>
+    <div style={{ display: "flex", gap: isMobile ? "10px" : "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none", scrollSnapType: "x proximity" }}>
       {items.map((item, index) => (
         <a key={index} href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "white", flexShrink: 0 }}>
           <div style={{
-            minWidth: "280px", height: "160px", borderRadius: "10px",
+            minWidth: isMobile ? "72vw" : "280px", height: isMobile ? "41vw" : "160px", maxHeight: isMobile ? "180px" : "none", borderRadius: isMobile ? "8px" : "10px",
             overflow: "hidden", position: "relative",
-            cursor: "pointer", transition: "0.3s ease",
+            cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start",
           }}>
             <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             <div style={{
               position: "absolute", inset: 0,
               background: "linear-gradient(to top, rgba(0,0,0,0.95), transparent)",
               display: "flex", alignItems: "flex-end", padding: "15px",
-              fontSize: "1rem", fontWeight: "600",
+              fontSize: isMobile ? "0.9rem" : "1rem", fontWeight: "600",
             }}>
               {item.title}
             </div>
@@ -237,7 +240,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
       color: "white", overflowX: "hidden", fontFamily: "Arial, sans-serif",
     }}>
 
-      {/* ── MORE INFO MODAL ── */}
+{/* ── MORE INFO MODAL ── */}
       {showMoreInfo && (
         <div
           onClick={() => setShowMoreInfo(false)}
@@ -245,17 +248,17 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
             position: "fixed", inset: 0, zIndex: 9999,
             background: "rgba(0,0,0,0.75)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            padding: "20px",
+            padding: isMobile ? "10px" : "20px",
           }}
         >
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
               background: "#181818",
-              borderRadius: "12px",
+              borderRadius: isMobile ? "10px" : "12px",
               width: "100%",
               maxWidth: "850px",
-              maxHeight: "90vh",
+              maxHeight: isMobile ? "94vh" : "90vh",
               overflowY: "auto",
               position: "relative",
               scrollbarWidth: "none",
@@ -276,29 +279,36 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
               ✕
             </button>
 
-            {/* Banner — video thumbnail */}
-            <div style={{ position: "relative", width: "100%", height: "420px", borderRadius: "12px 12px 0 0", overflow: "hidden" }}>
-              <video
-                src="/kash3.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-              {/* gradient over video */}
+            {/* Banner — conveyor belt */}
+            <div style={{ position: "relative", width: "100%", height: isMobile ? "280px" : "420px", borderRadius: isMobile ? "10px 10px 0 0" : "12px 12px 0 0", overflow: "hidden" }}>
+              <div style={{ display: "flex", position: "absolute", top: "50%", transform: "translateY(-50%)", animation: "scrollBelt 30s linear infinite" }}>
+                {[...heroCards, ...heroCards].map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt=""
+                    style={{
+                      width: isMobile ? "190px" : "300px", height: isMobile ? "285px" : "450px",
+                      objectFit: "cover", borderRadius: "10px",
+                      marginRight: "20px", flexShrink: 0,
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+                    }}
+                  />
+                ))}
+              </div>
+              {/* gradient over images */}
               <div style={{
                 position: "absolute", inset: 0,
                 background: "linear-gradient(to top, #181818 0%, transparent 60%)",
               }} />
               {/* Title over banner */}
-              <div style={{ position: "absolute", bottom: "24px", left: "28px" }}>
-                <h1 style={{ fontSize: "3rem", fontWeight: "900", margin: 0, lineHeight: 1 }}>Kashish</h1>
+              <div style={{ position: "absolute", bottom: isMobile ? "18px" : "24px", left: isMobile ? "18px" : "28px" }}>
+                <h1 style={{ fontSize: isMobile ? "2.1rem" : "3rem", fontWeight: "900", margin: 0, lineHeight: 1 }}>Kashish</h1>
               </div>
             </div>
 
             {/* Body */}
-            <div style={{ padding: "20px 28px 36px" }}>
+            <div style={{ padding: isMobile ? "18px 18px 28px" : "20px 28px 36px" }}>
 
               {/* Play button row */}
               <div style={{ display: "flex", gap: "12px", marginBottom: "24px" }}>
@@ -312,7 +322,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
               </div>
 
               {/* Two-column info — mirrors Netflix layout */}
-              <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: "28px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1.6fr 1fr", gap: isMobile ? "20px" : "28px" }}>
 
                 {/* LEFT: badges + description */}
                 <div>
@@ -363,24 +373,26 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
       {/* ── NAVBAR ── */}
       <nav style={{
         position: "fixed", top: 0, left: 0, width: "100%",
-        padding: "16px 50px", display: "flex", justifyContent: "space-between",
-        alignItems: "center", zIndex: 1000,
+        padding: isMobile ? "12px 16px" : "16px 50px", display: "flex", justifyContent: "space-between",
+        alignItems: isMobile ? "flex-start" : "center", zIndex: 1000,
+        flexDirection: isMobile ? "column" : "row",
+        gap: isMobile ? "10px" : 0,
         background: scrolled
           ? "black"
           : "linear-gradient(to bottom, rgba(0,0,0,0.9), transparent)",
         transition: "background 0.4s ease",
         boxSizing: "border-box",
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "28px" }}>
-          <div style={{ color: "#E50914", fontSize: "2rem", fontWeight: "900", fontFamily: "'Stint Ultra Condensed', sans-serif", letterSpacing: "3px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: isMobile ? "14px" : "28px", flexWrap: isMobile ? "wrap" : "nowrap", paddingRight: isMobile ? "78px" : 0 }}>
+          <div style={{ color: "#E50914", fontSize: isMobile ? "1.35rem" : "2rem", fontWeight: "900", fontFamily: "'Stint Ultra Condensed', sans-serif", letterSpacing: isMobile ? "2px" : "3px", flexBasis: isMobile ? "100%" : "auto" }}>
             KASHFLIX
           </div>
-          <span style={{ fontSize: "0.95rem", cursor: "pointer", color: "white" }}>Home</span>
-          <span onClick={() => navigate("/mylist")} style={{ fontSize: "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>My List</span>
-          <span onClick={() => navigate("/shows")} style={{ fontSize: "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Shows</span>
+          <span style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "white" }}>Home</span>
+          <span onClick={() => navigate("/mylist")} style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>My List</span>
+          <span onClick={() => navigate("/shows")} style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Shows</span>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "22px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: isMobile ? "14px" : "22px", position: isMobile ? "absolute" : "static", top: isMobile ? "12px" : "auto", right: isMobile ? "16px" : "auto" }}>
           {/* BELL */}
           <div style={{ position: "relative" }}>
             <div
@@ -400,7 +412,8 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
               <div
                 onClick={(e) => e.stopPropagation()}
                 style={{
-                  position: "absolute", top: "40px", right: 0, width: "340px",
+                  position: "absolute", top: "40px", right: 0, width: isMobile ? "calc(100vw - 32px)" : "340px",
+                  maxWidth: "340px",
                   background: "#141414", border: "1px solid rgba(255,255,255,0.15)",
                   borderRadius: "8px", zIndex: 9999, overflow: "hidden",
                 }}
@@ -448,7 +461,7 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
               <div
                 onClick={(e) => e.stopPropagation()}
                 style={{
-                  position: "absolute", top: "48px", right: 0, width: "200px",
+                  position: "absolute", top: "48px", right: 0, width: isMobile ? "180px" : "200px",
                   background: "#141414", border: "1px solid rgba(255,255,255,0.15)",
                   borderRadius: "8px", zIndex: 9999, overflow: "hidden", padding: "8px 0",
                 }}
@@ -497,9 +510,9 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
 
       {/* ── HERO ── */}
       <section style={{
-        width: "100%", height: "100vh", position: "relative",
+        width: "100%", minHeight: isMobile ? "720px" : "100vh", height: isMobile ? "auto" : "100vh", position: "relative",
         overflow: "hidden",
-        display: "flex", alignItems: "center", padding: "0 80px", boxSizing: "border-box",
+        display: "flex", alignItems: isMobile ? "flex-end" : "center", padding: isMobile ? "120px 20px 120px" : "0 80px", boxSizing: "border-box",
       }}>
         <div style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden", background: "#141414" }}>
   {!animationDone ? (
@@ -520,10 +533,10 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
           style={{
             position: "absolute",
             top: "50%", left: "50%",
-            width: "400px", height: "800px",
+            width: isMobile ? "220px" : "400px", height: isMobile ? "440px" : "800px",
             objectFit: "cover", borderRadius: "10px",
             boxShadow: "0 10px 40px rgba(0,0,0,0.6)",
-            transform: `translate(-50%, -50%) translateX(${positions[i].x}px) rotate(${positions[i].rotate}deg)`,
+            transform: `translate(-50%, -50%) translateX(${isMobile ? positions[i].x * 0.48 : positions[i].x}px) rotate(${positions[i].rotate}deg)`,
             transition: `transform 1s ease ${i * 0.1}s`,
             animation: `cardEntry${i} 1s ease ${i * 0.1}s forwards`,
           }}
@@ -539,9 +552,9 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
           src={img}
           alt=""
           style={{
-            width: "400px", height: "800px",
+            width: isMobile ? "220px" : "400px", height: isMobile ? "440px" : "800px",
             objectFit: "cover", borderRadius: "10px",
-            marginRight: "20px", flexShrink: 0,
+            marginRight: isMobile ? "12px" : "20px", flexShrink: 0,
             boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
           }}
         />
@@ -551,26 +564,26 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
 </div>
         <div style={{
           position: "absolute", inset: 0, zIndex: 1,
-          background: `
+          background: isMobile ? "linear-gradient(to top, black 8%, rgba(0,0,0,0.75) 45%, transparent 75%)" : `
             linear-gradient(to top, black 5%, transparent 40%),
             linear-gradient(to right, rgba(0,0,0,0.85), transparent)
           `,
         }} />
         <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: "700px" }}>
-          <h1 style={{ fontSize: "7rem", fontWeight: "900", marginBottom: "15px", lineHeight: "0.9" }}>
+          <h1 style={{ fontSize: isMobile ? "clamp(3.3rem, 18vw, 5rem)" : "7rem", fontWeight: "900", marginBottom: "15px", lineHeight: "0.9" }}>
             Kashish
           </h1>
-          <p style={{ fontSize: "1.3rem", lineHeight: "1.7", marginBottom: "30px", color: "rgba(255,255,255,0.9)" }}>
+          <p style={{ fontSize: isMobile ? "1rem" : "1.3rem", lineHeight: isMobile ? "1.55" : "1.7", marginBottom: isMobile ? "22px" : "30px", color: "rgba(255,255,255,0.9)", maxWidth: isMobile ? "32rem" : "none" }}>
             A limited series starring the most dramatic,
             iconic and emotionally expensive human alive.
           </p>
-          <div style={{ display: "flex", gap: "15px" }}>
-            <button style={{ padding: "14px 34px", border: "none", borderRadius: "5px", fontSize: "1rem", fontWeight: "700", cursor: "pointer", background: "white", color: "black" }}>
+          <div style={{ display: "flex", gap: isMobile ? "10px" : "15px", flexWrap: "wrap" }}>
+            <button style={{ padding: isMobile ? "12px 22px" : "14px 34px", border: "none", borderRadius: "5px", fontSize: isMobile ? "0.95rem" : "1rem", fontWeight: "700", cursor: "pointer", background: "white", color: "black", flex: isTiny ? "1 1 100%" : "0 0 auto" }}>
               ▶ Play
             </button>
             <button
               onClick={() => setShowMoreInfo(true)}
-              style={{ padding: "14px 34px", border: "none", borderRadius: "5px", fontSize: "1rem", fontWeight: "700", cursor: "pointer", background: "rgba(109,109,110,0.7)", color: "white" }}
+              style={{ padding: isMobile ? "12px 22px" : "14px 34px", border: "none", borderRadius: "5px", fontSize: isMobile ? "0.95rem" : "1rem", fontWeight: "700", cursor: "pointer", background: "rgba(109,109,110,0.7)", color: "white", flex: isTiny ? "1 1 100%" : "0 0 auto" }}
             >
               ⓘ More Info
             </button>
@@ -579,7 +592,7 @@ Wishing you a year filled with happiness, success, unforgettable memories, and e
       </section>
 
       {/* ── ROWS ── */}
-      <div style={{ width: "100%", padding: "0 60px 60px 60px", marginTop: "-120px", position: "relative", zIndex: 20, boxSizing: "border-box" }}>
+      <div style={{ width: "100%", padding: isMobile ? "0 16px 44px" : "0 60px 60px 60px", marginTop: isMobile ? "-84px" : "-120px", position: "relative", zIndex: 20, boxSizing: "border-box" }}>
         {renderRow("Top 10 Shows in India Today", top10)}
         {renderRow("See What's Popular", popular)}
         {renderRow('Because you watched "Yourself become friends with me"', friends)}

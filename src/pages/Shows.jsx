@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useMediaQuery from "../hooks/useMediaQuery";
 import bannerImg from "../assets/popular/cimg7.jpeg";
 
 import dyn from "../assets/watchlist/dynasty.jpeg";
@@ -45,6 +46,8 @@ const watchlist = [
 
 export default function Shows() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 700px)");
+  const isTiny = useMediaQuery("(max-width: 430px)");
   const [scrolled, setScrolled] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -57,39 +60,39 @@ export default function Shows() {
   return (
     <div style={{ background: "#141414", minHeight: "100vh", color: "white", fontFamily: "Arial" }}>
 
-      <nav style={{ position: "fixed", top: 0, left: 0, width: "100%", padding: "16px 50px", display: "flex", alignItems: "center", gap: "28px", background: scrolled ? "black" : "transparent", transition: "background 0.4s ease", zIndex: 1000, boxSizing: "border-box" }}>
-        <div style={{ color: "#E50914", fontSize: "2rem", fontWeight: "900", letterSpacing: "3px" }}>KASHFLIX</div>
-        <span onClick={() => navigate("/home")} style={{ fontSize: "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Home</span>
-        <span onClick={() => navigate("/mylist")} style={{ fontSize: "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>My List</span>
-        <span style={{ fontSize: "0.95rem", cursor: "pointer", color: "white" }}>Shows</span>
+      <nav style={{ position: "fixed", top: 0, left: 0, width: "100%", padding: isMobile ? "12px 16px" : "16px 50px", display: "flex", alignItems: "center", gap: isMobile ? "14px" : "28px", flexWrap: "wrap", background: scrolled ? "black" : "linear-gradient(to bottom, rgba(0,0,0,0.85), transparent)", transition: "background 0.4s ease", zIndex: 1000, boxSizing: "border-box" }}>
+        <div style={{ color: "#E50914", fontSize: isMobile ? "1.35rem" : "2rem", fontWeight: "900", letterSpacing: isMobile ? "2px" : "3px", flexBasis: isTiny ? "100%" : "auto" }}>KASHFLIX</div>
+        <span onClick={() => navigate("/home")} style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Home</span>
+        <span onClick={() => navigate("/mylist")} style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>My List</span>
+        <span style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "white" }}>Shows</span>
       </nav>
 
       {/* BANNER */}
       <div style={{
-        width: "100%", height: "70vh", position: "relative",
+        width: "100%", minHeight: isMobile ? "560px" : "70vh", height: isMobile ? "auto" : "70vh", position: "relative",
         background: `
           linear-gradient(to top, #141414 5%, transparent 40%),
           linear-gradient(to right, rgba(0,0,0,0.85), transparent),
           url(${bannerImg})
         `,
         backgroundSize: "cover", backgroundPosition: "center",
-        display: "flex", alignItems: "center",
-        padding: "0 80px", boxSizing: "border-box",
+        display: "flex", alignItems: isMobile ? "flex-end" : "center",
+        padding: isMobile ? "120px 20px 70px" : "0 80px", boxSizing: "border-box",
       }}>
         <div>
-          <h1 style={{ fontSize: "7rem", fontWeight: "900", lineHeight: "0.9", marginBottom: "20px", letterSpacing: "5px" }}>
+          <h1 style={{ fontSize: isMobile ? "clamp(3.2rem, 18vw, 5rem)" : "7rem", fontWeight: "900", lineHeight: "0.9", marginBottom: "20px", letterSpacing: isMobile ? "2px" : "5px" }}>
             TWENTY
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.85)", marginBottom: "20px" }}>
+          <p style={{ fontSize: isMobile ? "1rem" : "1.1rem", color: "rgba(255,255,255,0.85)", marginBottom: "20px" }}>
             A curated collection of her favourite shows.
           </p>
-          <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-            <button style={{ padding: "10px 28px", border: "none", borderRadius: "5px", fontSize: "1rem", fontWeight: "700", cursor: "pointer", background: "white", color: "black" }}>
+          <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" }}>
+            <button style={{ padding: isMobile ? "10px 22px" : "10px 28px", border: "none", borderRadius: "5px", fontSize: isMobile ? "0.95rem" : "1rem", fontWeight: "700", cursor: "pointer", background: "white", color: "black", flex: isTiny ? "1 1 100%" : "0 0 auto" }}>
               ▶ Play
             </button>
             <button
               onClick={() => setShowModal(true)}
-              style={{ padding: "10px 22px", border: "none", borderRadius: "5px", fontSize: "1rem", fontWeight: "700", cursor: "pointer", background: "rgba(109,109,110,0.7)", color: "white", display: "flex", alignItems: "center", gap: "8px" }}
+              style={{ padding: "10px 22px", border: "none", borderRadius: "5px", fontSize: isMobile ? "0.95rem" : "1rem", fontWeight: "700", cursor: "pointer", background: "rgba(109,109,110,0.7)", color: "white", display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", flex: isTiny ? "1 1 100%" : "0 0 auto" }}
             >
               ⓘ More Info
             </button>
@@ -102,9 +105,9 @@ export default function Shows() {
       </div>
 
       {/* SHOWS GRID */}
-      <div style={{ padding: "20px 50px 60px" }}>
+      <div style={{ padding: isMobile ? "24px 16px 44px" : "20px 50px 60px" }}>
         <h1 style={{ fontSize: "2rem", marginBottom: "30px" }}>Shows 🎬</h1>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(auto-fill, minmax(132px, 1fr))" : "repeat(auto-fill, minmax(160px, 1fr))", gap: isMobile ? "12px" : "20px" }}>
           {watchlist.map((item, index) => (
             <a key={index} href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "white" }}>
               <div
@@ -126,9 +129,9 @@ export default function Shows() {
       </div>
 
       {/* RECOMMENDED ROW */}
-<div style={{ padding: "0 50px 60px" }}>
+<div style={{ padding: isMobile ? "0 16px 44px" : "0 50px 60px" }}>
   <h2 style={{ fontSize: "1.8rem", marginBottom: "18px", fontWeight: "700" }}>Recommended For You 🍿</h2>
-  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "20px" }}>
+  <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(auto-fill, minmax(132px, 1fr))" : "repeat(auto-fill, minmax(160px, 1fr))", gap: isMobile ? "12px" : "20px" }}>
     {recommended.map((item, index) => (
       <a key={index} href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "white" }}>
         <div
@@ -150,22 +153,22 @@ export default function Shows() {
       {showModal && (
         <div
           onClick={() => setShowModal(false)}
-          style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center" }}
+          style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", padding: isMobile ? "10px" : "20px" }}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{ background: "#181818", borderRadius: "12px", width: "90%", maxWidth: "850px", maxHeight: "90vh", overflowY: "auto", position: "relative" }}
+            style={{ background: "#181818", borderRadius: isMobile ? "10px" : "12px", width: "100%", maxWidth: "850px", maxHeight: isMobile ? "94vh" : "90vh", overflowY: "auto", position: "relative" }}
           >
             {/* BANNER IMAGE AT TOP */}
-            <div style={{ position: "relative", width: "100%", height: "400px" }}>
+            <div style={{ position: "relative", width: "100%", height: isMobile ? "280px" : "400px" }}>
               <img src={bannerImg} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px 12px 0 0" }} />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #181818 5%, transparent 50%)", borderRadius: "12px 12px 0 0" }} />
               <div
                 onClick={() => setShowModal(false)}
                 style={{ position: "absolute", top: "15px", right: "15px", width: "36px", height: "36px", borderRadius: "50%", background: "#181818", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: "1.2rem" }}
               >✕</div>
-              <div style={{ position: "absolute", bottom: "20px", left: "30px" }}>
-                <h1 style={{ fontSize: "3rem", fontWeight: "900" }}>TWENTY</h1>
+              <div style={{ position: "absolute", bottom: "20px", left: isMobile ? "18px" : "30px" }}>
+                <h1 style={{ fontSize: isMobile ? "2.1rem" : "3rem", fontWeight: "900" }}>TWENTY</h1>
                 <div style={{ display: "flex", gap: "12px", marginTop: "12px" }}>
                   <button style={{ padding: "10px 28px", border: "none", borderRadius: "5px", fontSize: "1rem", fontWeight: "700", cursor: "pointer", background: "white", color: "black" }}>▶ Play</button>
                 </div>
@@ -173,7 +176,7 @@ export default function Shows() {
             </div>
 
             {/* DETAILS */}
-            <div style={{ padding: "20px 30px 40px", display: "flex", gap: "40px" }}>
+            <div style={{ padding: isMobile ? "18px 18px 28px" : "20px 30px 40px", display: "flex", gap: isMobile ? "20px" : "40px", flexDirection: isMobile ? "column" : "row" }}>
               <div style={{ flex: 2 }}>
                 <div style={{ display: "flex", gap: "12px", marginBottom: "16px", fontSize: "0.9rem", alignItems: "center" }}>
                   <span style={{ color: "#46d369", fontWeight: "700" }}>2026</span>

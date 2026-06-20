@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useMediaQuery from "../hooks/useMediaQuery";
 import img1 from "../assets/popular/img8.jpg";
 import img2 from "../assets/popular/img9.jpg";
 import img3 from "../assets/popular/img10.jpg";
@@ -40,24 +41,26 @@ const initialItems = [
 
 export default function MyList() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 700px)");
+  const isTiny = useMediaQuery("(max-width: 430px)");
   const [items, setItems] = useState(initialItems);
 
   return (
     <div style={{ background: "#141414", minHeight: "100vh", color: "white", fontFamily: "Arial" }}>
 
-      <nav style={{ position: "fixed", top: 0, left: 0, width: "100%", padding: "16px 50px", display: "flex", alignItems: "center", gap: "28px", background: "black", zIndex: 1000, boxSizing: "border-box" }}>
-        <div style={{ color: "#E50914", fontSize: "2rem", fontWeight: "900", letterSpacing: "3px" }}>KASHFLIX</div>
-        <span onClick={() => navigate("/home")} style={{ fontSize: "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Home</span>
-        <span style={{ fontSize: "0.95rem", cursor: "pointer", color: "white" }}>My List</span>
-        <span onClick={() => navigate("/shows")} style={{ fontSize: "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Shows</span>
+      <nav style={{ position: "fixed", top: 0, left: 0, width: "100%", padding: isMobile ? "12px 16px" : "16px 50px", display: "flex", alignItems: "center", gap: isMobile ? "14px" : "28px", flexWrap: "wrap", background: "black", zIndex: 1000, boxSizing: "border-box" }}>
+        <div style={{ color: "#E50914", fontSize: isMobile ? "1.35rem" : "2rem", fontWeight: "900", letterSpacing: isMobile ? "2px" : "3px", flexBasis: isTiny ? "100%" : "auto" }}>KASHFLIX</div>
+        <span onClick={() => navigate("/home")} style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Home</span>
+        <span style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "white" }}>My List</span>
+        <span onClick={() => navigate("/shows")} style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "rgba(255,255,255,0.75)" }}>Shows</span>
       </nav>
 
-      <div style={{ padding: "80px 40px 40px" }}>
-        <h1 style={{ fontSize: "2rem", marginBottom: "20px" }}>My List</h1>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "20px" }}>
+      <div style={{ padding: isMobile ? "116px 16px 36px" : "80px 40px 40px" }}>
+        <h1 style={{ fontSize: isMobile ? "1.45rem" : "2rem", marginBottom: isMobile ? "16px" : "20px" }}>My List</h1>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(auto-fill, minmax(140px, 1fr))" : "repeat(auto-fill, minmax(260px, 1fr))", gap: isMobile ? "12px" : "20px" }}>
           {items.map((item) => (
             <div key={item.id} style={{ position: "relative", borderRadius: "8px", overflow: "hidden", cursor: "pointer", background: "#222" }}>
-              <img src={item.src} alt={item.title} style={{ width: "100%", height: "160px", objectFit: "cover", display: "block" }} />
+              <img src={item.src} alt={item.title} style={{ width: "100%", height: isMobile ? "96px" : "160px", objectFit: "cover", display: "block" }} />
               <div style={{ padding: "12px" }}>
                 <h3 style={{ fontSize: "1rem" }}>{item.title}</h3>
               </div>

@@ -189,14 +189,14 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
     <div style={{ display: "flex", gap: isMobile ? "10px" : "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none", scrollSnapType: "x proximity" }}>
       {items.map((item, index) => (
         <div key={index} style={{
-          minWidth: isMobile ? "72vw" : "280px", height: isMobile ? "41vw" : "160px", maxHeight: isMobile ? "180px" : "none", borderRadius: isMobile ? "8px" : "10px",
+          minWidth: isMobile ? "46vw" : "210px", height: isMobile ? "69vw" : "315px", maxHeight: isMobile ? "290px" : "none", borderRadius: isMobile ? "8px" : "10px",
           overflow: "hidden", position: "relative", flexShrink: 0,
-          cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start",
+          cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start", background: "#111",
         }}>
-          <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" }} />
           <div style={{
             position: "absolute", inset: 0,
-            background: "linear-gradient(to top, rgba(0,0,0,0.95), transparent)",
+            background: "linear-gradient(to top, rgba(0,0,0,0.75), transparent 55%)",
             display: "flex", alignItems: "flex-end", padding: "15px",
             fontSize: isMobile ? "0.9rem" : "1rem", fontWeight: "600",
           }}>
@@ -214,14 +214,14 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
       {items.map((item, index) => (
         <a key={index} href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "white", flexShrink: 0 }}>
           <div style={{
-            minWidth: isMobile ? "72vw" : "280px", height: isMobile ? "41vw" : "160px", maxHeight: isMobile ? "180px" : "none", borderRadius: isMobile ? "8px" : "10px",
+            minWidth: isMobile ? "46vw" : "210px", height: isMobile ? "69vw" : "315px", maxHeight: isMobile ? "290px" : "none", borderRadius: isMobile ? "8px" : "10px",
             overflow: "hidden", position: "relative",
-            cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start",
+            cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start", background: "#111",
           }}>
-            <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" }} />
             <div style={{
               position: "absolute", inset: 0,
-              background: "linear-gradient(to top, rgba(0,0,0,0.95), transparent)",
+              background: "linear-gradient(to top, rgba(0,0,0,0.75), transparent 55%)",
               display: "flex", alignItems: "flex-end", padding: "15px",
               fontSize: isMobile ? "0.9rem" : "1rem", fontWeight: "600",
             }}>

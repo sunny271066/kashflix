@@ -34,14 +34,14 @@ const watchlist = [
  
 ];
  const recommended = [
-  { title: "Show 1", image: r1, link: "" },
-  { title: "Show 2", image: r2, link: "" },
-  { title: "Show 3", image: r3, link: "" },
-  { title: "Show 4", image: r4, link: "" },
-  { title: "Show 5", image: r5, link: "" },
-  { title: "Show 6", image: r6, link: "" },
-  { title: "Show 7", image: r7, link: "" },
-  { title: "Show 8", image: r8, link: "" },
+  { title: "The Voyeurs1", image: r1, link: "https://www.primevideo.com/detail/0JPF2F5LH5X61ZC1C5468ZLSLK" },
+  { title: "Face Off", image: r2, link: "https://myflixerfree.org/player?id=754&type=movie&title=Face%2FOff" },
+  { title: "UNCHARTED", image: r3, link: "https://www.netflix.com/in/title/81199140" },
+  { title: "Spider-man:Brand New Day", image: r4, link: "https://in.bookmyshow.com/movies/mumbai/spiderman-brand-new-day/ET00447840" },
+  { title: "The Wedding Ringer", image: r5, link: "https://tv.apple.com/in/movie/the-wedding-ringer/umc.cmc.29ioqd7007hvo96dlhx1mij8k" },
+  { title: "Collateral", image: r6, link: "https://tv.apple.com/in/movie/collateral/umc.cmc.78jh6hepzapdc5t0zq0ozujpl" },
+  { title: "The Mask", image: r7, link: "https://www.netflix.com/in/title/70027007" },
+  { title: "Indias Got Latent", image: r8, link: "https://www.netflix.com/in/title/82988577" },
 ];
 
 export default function Shows() {
@@ -192,8 +192,8 @@ export default function Shows() {
               </div>
               <div style={{ flex: 1, fontSize: "0.85rem", lineHeight: "2" }}>
                 <div><span style={{ color: "#777" }}>Cast: </span><span style={{ color: "#ddd" }}>Kashish Saumil Bhansali</span></div>
-                <div><span style={{ color: "#777" }}>Genres: </span><span style={{ color: "#ddd" }}>Belgian Series, Horror Comedy</span></div>
-                <div><span style={{ color: "#777" }}>This Show Is: </span><span style={{ color: "#ddd" }}>Scary and Extremely Mean</span></div>
+                <div><span style={{ color: "#777" }}>Genres: </span><span style={{ color: "#ddd" }}>Belgian Series,Horror </span></div>
+                <div><span style={{ color: "#777" }}>This Show Is: </span><span style={{ color: "#ddd" }}>The sweetest</span></div>
               </div>
             </div>
           </div>

@@ -189,7 +189,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
     <div style={{ display: "flex", gap: isMobile ? "10px" : "15px", overflowX: "auto", paddingBottom: "15px", scrollbarWidth: "none", scrollSnapType: "x proximity" }}>
       {items.map((item, index) => (
         <div key={index} style={{
-          minWidth: isMobile ? "46vw" : "210px", height: isMobile ? "69vw" : "315px", maxHeight: isMobile ? "290px" : "none", borderRadius: isMobile ? "8px" : "10px",
+          minWidth: isMobile ? "46vw" : "210px", height: isMobile ? "290px" : "315px", maxHeight: isMobile ? "290px" : "none", borderRadius: isMobile ? "8px" : "10px",
           overflow: "hidden", position: "relative", flexShrink: 0,
           cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start", background: "#111",
         }}>
@@ -226,7 +226,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
       {items.map((item, index) => (
         <a key={index} href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "white", flexShrink: 0 }}>
           <div style={{
-            minWidth: isMobile ? "46vw" : "210px", height: isMobile ? "69vw" : "315px", maxHeight: isMobile ? "290px" : "none", borderRadius: isMobile ? "8px" : "10px",
+            minWidth: isMobile ? "46vw" : "210px", height: isMobile ? "290px" : "315px", maxHeight: isMobile ? "290px" : "none", borderRadius: isMobile ? "8px" : "10px",
             overflow: "hidden", position: "relative",
             cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start", background: "#111",
           }}>

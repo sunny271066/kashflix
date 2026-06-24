@@ -122,9 +122,9 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   }, [showMoreInfo]);
 
   const notifications = [
-    { image: not3, title: "Chaos Era",        desc: "New episode dropped: 'She did what again?'", time: "2m ago" },
-    { image: not1, title: "Emotional Damage", desc: "Continuing from where you left off...",       time: "1h ago" },
-    { image: not2, title: "KBC Origins",      desc: "Reminder: This is still unresolved.",         time: "3h ago" },
+    { image: not3, title: "2026",        desc: "New episode dropped: 'The one where she turned 20'", time: "2m ago" },
+    { image: not1, title: "2023", desc: "Continuing from where you left off...",       time: "1h ago" },
+    { image: not2, title: "2006",      desc: "Born to create Happiness",         time: "3h ago" },
   ];
 
   const top10 = [
@@ -178,7 +178,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   ];
 
   const continueWatching = [
-  { title: "", image: cw1, link: "" },  // add your link here
+  { title: "Love Island", image: cw1, link: "https://drive.google.com/drive/folders/10lsfEDQPp0iIIFGxv7CNB_fzlas454Jo" },  // add your link here
 ];
 
   

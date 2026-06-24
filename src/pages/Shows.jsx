@@ -84,7 +84,7 @@ export default function Shows() {
             TWENTY
           </h1>
           <p style={{ fontSize: isMobile ? "1rem" : "1.1rem", color: "rgba(255,255,255,0.85)", marginBottom: "20px" }}>
-            A curated collection of her favourite shows.
+            Happiest Birthday Hon!
           </p>
           <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" }}>
             <button style={{ padding: isMobile ? "10px 22px" : "10px 28px", border: "none", borderRadius: "5px", fontSize: isMobile ? "0.95rem" : "1rem", fontWeight: "700", cursor: "pointer", background: "white", color: "black", flex: isTiny ? "1 1 100%" : "0 0 auto" }}>
@@ -187,7 +187,7 @@ export default function Shows() {
                   Drama, Emotional Damage
                 </div>
                 <p style={{ fontSize: "1rem", lineHeight: "1.7", color: "#ddd" }}>
-                  Write your description here — edit this in the code!
+                  This section is basically shows which you've watched and practically forced me to watch (lol) and shows recommended by me which I ll keep updating
                 </p>
               </div>
               <div style={{ flex: 1, fontSize: "0.85rem", lineHeight: "2" }}>

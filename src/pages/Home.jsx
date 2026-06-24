@@ -193,7 +193,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
           overflow: "hidden", position: "relative", flexShrink: 0,
           cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start", background: "#111",
         }}>
-          <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" }} />
+          <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "fill", objectPosition: "center", display: "block" }} />
           <div style={{
             position: "absolute", inset: 0,
             background: "linear-gradient(to top, rgba(0,0,0,0.75), transparent 55%)",
@@ -218,7 +218,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
             overflow: "hidden", position: "relative",
             cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start", background: "#111",
           }}>
-            <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" }} />
+            <img src={item.image} alt="" style={{ width: "100%", height: "100%", objectFit: "fill", objectPosition: "center", display: "block" }} />
             <div style={{
               position: "absolute", inset: 0,
               background: "linear-gradient(to top, rgba(0,0,0,0.75), transparent 55%)",

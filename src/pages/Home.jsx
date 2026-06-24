@@ -200,8 +200,8 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
     width: "100%",
     height: "100%",
     maxWidth: "100%",
-maxHeight: "100%",
-    objectFit: "fill",
+    maxHeight: "100%",
+    objectFit: "scale-down",
     objectPosition: "center",
     display: "block"
   }}
@@ -237,8 +237,8 @@ maxHeight: "100%",
     width: "100%",
     height: "100%",
     maxWidth: "100%",
-maxHeight: "100%",
-    objectFit: "fill",
+    maxHeight: "100%",
+    objectFit: "scale-down",
     objectPosition: "center",
     display: "block"
   }}

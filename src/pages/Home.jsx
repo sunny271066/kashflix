@@ -199,6 +199,8 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   style={{
     width: "100%",
     height: "100%",
+    maxWidth: "100%",
+maxHeight: "100%",
     objectFit: "fill",
     objectPosition: "center",
     display: "block"
@@ -234,6 +236,8 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   style={{
     width: "100%",
     height: "100%",
+    maxWidth: "100%",
+maxHeight: "100%",
     objectFit: "fill",
     objectPosition: "center",
     display: "block"

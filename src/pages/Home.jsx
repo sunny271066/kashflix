@@ -193,13 +193,15 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
           overflow: "hidden", position: "relative", flexShrink: 0,
           cursor: "pointer", transition: "0.3s ease", scrollSnapAlign: "start", background: "#111",
         }}>
-        <img
+         <img
   src={item.image}
   alt=""
   style={{
     width: "100%",
     height: "100%",
-    objectFit: "contain",
+    maxWidth: "100%",
+    maxHeight: "100%",
+    objectFit: "scale-down",
     objectPosition: "center",
     display: "block"
   }}
@@ -234,7 +236,9 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
   style={{
     width: "100%",
     height: "100%",
-    objectFit: "contain",
+    maxWidth: "100%",
+    maxHeight: "100%",
+    objectFit: "scale-down",
     objectPosition: "center",
     display: "block"
   }}
@@ -403,7 +407,7 @@ const heroCards = [p1, p2, p3, p4, p5, p6, p7];
         boxSizing: "border-box",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: isMobile ? "14px" : "28px", flexWrap: isMobile ? "wrap" : "nowrap", paddingRight: isMobile ? "78px" : 0 }}>
-          <div style={{ color: "#E50914", fontSize: isMobile ? "1.35rem" : "2rem", fontWeight: "900", fontFamily: "'Stint Ultra Condensed', sans-serif", letterSpacing: isMobile ? "2px" : "3px", flexBasis: isMobile ? "100%" : "auto" }}>
+          <div style={{ color: "#E50914", fontSize: isMobile ? "1.35rem" : "2rem", fontWeight: "900", letterSpacing: isMobile ? "2px" : "3px", flexBasis: isMobile ? "100%" : "auto" }}>
             KASHFLIX
           </div>
           <span style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", cursor: "pointer", color: "white" }}>Home</span>
